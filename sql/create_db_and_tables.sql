@@ -1,0 +1,29 @@
+CREATE DATABASE IF NOT EXISTS tecnica6moron CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE tecnica6moron;
+
+CREATE TABLE IF NOT EXISTS Alumno (
+    NroMatricula SMALLINT PRIMARY KEY CHECK (NroMatricula > 999 AND NroMatricula < 4999),
+    Apellido VARCHAR(50) NOT NULL,
+    Nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Materia (
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Cursa (
+    NroMatricula SMALLINT NOT NULL,
+    MateriaId INT NOT NULL,
+    PRIMARY KEY (NroMatricula, MateriaId),
+    FOREIGN KEY (NroMatricula) REFERENCES Alumno(NroMatricula) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (MateriaId) REFERENCES Materia(Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Asistencia (
+    fecha DATE NOT NULL,
+    NroMatricula SMALLINT NOT NULL,
+    Presente CHAR(1) NOT NULL CHECK (Presente IN ('P','A')),
+    PRIMARY KEY (fecha, NroMatricula),
+    FOREIGN KEY (NroMatricula) REFERENCES Alumno(NroMatricula) ON DELETE CASCADE ON UPDATE CASCADE
+);
