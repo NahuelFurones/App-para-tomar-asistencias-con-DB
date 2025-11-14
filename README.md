@@ -35,17 +35,8 @@ Uso
    - Formato de cada línea del archivo: `NroMatricula<TAB>Nombre<TAB>Apellido<TAB>Presente` (P o A).
    - Si la BD está disponible, se inserta o actualiza la tabla `Asistencia` (clave primaria: fecha + NroMatricula). En caso de registro ya existente se actualiza el estado de `Presente`.
 
-Comportamiento en caso de errores
-
-- Si falla la conexión a la BD, `Asistencia.php` carga la lista de alumnos desde `Archivos/Alumnos.txt` (respaldo).  
-- El script de inserción en BD usa cláusula para actualizar si ya existe el registro, evitando errores por clave primaria duplicada.
-
 Notas y recomendaciones
 
 - Verifique credenciales en `php/config.php` y permisos en `Archivos/`.  
 - Para depurar, revise los logs de PHP/Apache y las tablas en phpMyAdmin.  
 - Puede poblar o actualizar los alumnos con `sql/insert_data.sql` (o usar su propio script SQL).
-
-Contacto
-
-- Este README describe el funcionamiento básico; para cambios o mejoras edite los archivos PHP o los scripts SQL en la carpeta `sql/`.
