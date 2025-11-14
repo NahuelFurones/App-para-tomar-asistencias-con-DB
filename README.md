@@ -13,8 +13,8 @@ Estructura relevante
 
 - php/config.php            -> configuración de conexión a la BD.
 - php/GeneraArchivo.php     -> procesa el formulario, genera archivo .txt e inserta/actualiza en BD.
-- Asistencia.php            -> formulario web para marcar asistencias; lee alumnos desde la BD o, si no hay conexión, desde `Archivos/Alumnos.txt`.
-- Archivos/                 -> carpeta donde se guardan los archivos de asistencia y puede contener `Alumnos.txt` como respaldo.
+- Asistencia.php            -> formulario web para marcar asistencias; lee alumnos desde la BD.
+- Archivos/                 -> carpeta donde se guardan los archivos de asistencia.
 - sql/create_db_and_tables.sql -> script para crear la BD y las tablas.
 - sql/insert_data.sql       -> script para insertar datos de ejemplo.
 
